@@ -1,0 +1,22 @@
+flowchart TB
+
+%% Row 1: Two blocks
+subgraph row1
+direction LR
+BlockA["**Additively Homomorphic Encryption**<br/>Encrypts sums so that Encpk(a) × Encpk(b) = Encpk(a + b), enabling private tallies."]
+BlockB["**Pedersen Commitment**<br/>Computationally hiding & binding: Com(m; r) = g^m · h^r, used for secure proofs."]
+end
+style row1 fill:transparent,stroke-width:0
+
+%% Row 2: Two blocks
+subgraph row2
+direction LR
+BlockC["**Committee Selection Threshold**<br/>hash(vk_i, sign(seed)) ≤ s_i · T ensures delegates are chosen by stake proportion."]
+BlockD["**Delegation Calculation**<br/>δ = { (E_i, Σ α_j) }, summing the stake delegated to each expert or representative."]
+end
+style row2 fill:transparent,stroke-width:0
+
+%% Styling: All blocks are blue boxes (tech style)
+classDef techBox fill:#D6EAF8,stroke:#1B4F72,stroke-width:2px,color:#1B4F72
+
+class BlockA,BlockB,BlockC,BlockD techBox
