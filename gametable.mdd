@@ -1,0 +1,55 @@
+flowchart TB
+
+%% Top title node (no bounding box)
+PaperTitle["**Kovalchuk et al. (2022)<br/>A Game-Theoretic Analysis of Delegation Incentives**"]
+
+%% -----------------------------------------------------------
+%% Row 1 (3 items), no label
+%% -----------------------------------------------------------
+subgraph r1
+direction LR
+Paper1["**Delegation Scheme**<br/>Stakeholders can assign voting power<br/>to trusted delegates."]
+Paper2["**Bribery (Pure)**<br/>Yes/no decisions; each side picks<br/>an action with direct payoffs."]
+Paper3["**Bribery (Mixed)**<br/>Uses probabilities; players sometimes<br/>bribe or accept bribes."]
+end
+style r1 fill:transparent,stroke-width:0
+
+%% -----------------------------------------------------------
+%% Row 2 (3 items)
+%% -----------------------------------------------------------
+subgraph r2
+direction LR
+Paper4["**Nash Equilibrium**<br/>No one benefits by changing strategy<br/>if others do not."]
+Paper5["**Sufficient Condition**<br/>(Prop. 4) Prevents bribery if the briber’s<br/>stake is below a threshold."]
+Tech1["**Payoff Matrices**<br/>(B1/S1, B2/S2) show outcomes for each choice."]
+end
+style r2 fill:transparent,stroke-width:0
+
+%% -----------------------------------------------------------
+%% Row 3 (3 items)
+%% -----------------------------------------------------------
+subgraph r3
+direction LR
+Tech2["**Probability of Detection (q)**<br/>Risk that bribery is uncovered, penalizing all parties."]
+Tech3["**Moral Price (κ)**<br/>An extra 'pride' or 'cost' factor<br/>influencing bribery acceptance."]
+Tech4["**Stake Ratio (si) & Eq. (25)**<br/>Caps how much stake a briber can buy before<br/>the system remains safe."]
+end
+style r3 fill:transparent,stroke-width:0
+
+%% -----------------------------------------------------------
+%% Extra node at bottom
+%% -----------------------------------------------------------
+subgraph extra
+direction TB
+Tech5["**Delegate’s Total Reward (Eq. (1))**<br/>Tracks a delegate’s round-by-round gains,<br/>showing what's lost if caught."]
+end
+style extra fill:transparent,stroke-width:0
+
+%% -----------------------------------------------------------
+%% Coloring: Paper vs. Tech
+%% -----------------------------------------------------------
+classDef paperBox fill:#FFF2CC,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+classDef techBox fill:#D6EAF8,stroke:#1B4F72,stroke-width:2px,color:#1B4F72
+
+class Paper1,Paper2,Paper3,Paper4,Paper5 paperBox
+class Tech1,Tech2,Tech3,Tech4,Tech5 techBox
