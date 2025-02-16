@@ -1,0 +1,84 @@
+flowchart TB
+
+%% ----------------------------------------------------
+%% 1) Define style classes
+%% ----------------------------------------------------
+classDef mainNode fill:#FFF2CC,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+classDef contribNode fill:#D6EAF8,stroke:#1B4F72,stroke-width:1px,color:#1B4F72
+classDef subgraphBG fill:#FEF9E7,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+classDef subgraphBG2 fill:#EBF5FB,stroke:#5DADE2,stroke-width:2px,color:#1B4F72
+
+%% ----------------------------------------------------
+%% 2) Subgraph: 2018 Treasury System
+%% ----------------------------------------------------
+subgraph A_Contributions ["2018 System"]
+direction TB
+    A1["Introduced liquid democracy"]
+    A2["Enabled stake delegation"]
+    A3["Proposed secure treasury funding"]
+    A["**2018 Treasury System for Cryptocurrencies (Zhang et al.)**"]
+    A1 --> A
+    A2 --> A
+    A3 --> A
+end
+
+%% Apply subgraph style
+style A_Contributions fill:#FEF9E7,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+
+%% ----------------------------------------------------
+%% 3) Subgraph: 2022 Game-Theoretic Analysis
+%% ----------------------------------------------------
+subgraph B_Contributions ["2022 Analysis"]
+direction TB
+    B1["Analyzed bribery risks"]
+    B2["Proposed Nash equilibria"]
+    B["**2022 Game-Theoretic Analysis of Delegation Incentives (Kovalchuk et al.)**"]
+    B1 --> B
+    B2 --> B
+end
+
+style B_Contributions fill:#EBF5FB,stroke:#5DADE2,stroke-width:2px,color:#1B4F72
+
+%% ----------------------------------------------------
+%% 4) Subgraph: 2024 Reward Schemes
+%% ----------------------------------------------------
+subgraph C_Contributions ["2024 Reward Schemes"]
+direction TB
+    C1["Studied reward mechanisms"]
+    C2["Proposed optimal committee sizes"]
+    C3["Balanced governance efficiency"]
+    C4["Optimized reward distribution"]
+    C["**Current Project Catalyst Reward Scheme**"]
+    C1 --> C
+    C2 --> C
+    C3 --> C
+    C4 --> C
+end
+
+style C_Contributions fill:#FEF9E7,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+
+%% ----------------------------------------------------
+%% 5) Connect subgraphs
+%% ----------------------------------------------------
+A_Contributions --> B_Contributions
+B_Contributions --> C_Contributions
+
+%% ----------------------------------------------------
+%% 6) Apply node classes
+%% ----------------------------------------------------
+class A,B,C mainNode
+class A1,A2,A3,B1,B2,C1,C2,C3,C4 contribNode
+
+%% ----------------------------------------------------
+%% 7) (Optional) Style edges
+%% ----------------------------------------------------
+linkStyle default stroke:#5D6D7E,stroke-width:1.5px
+
+%% ----------------------------------------------------
+%% 8) Credit node for author
+%% ----------------------------------------------------
+AuthorCredit["Diagram created by @Minhcardanian (GitHub)"]
+style AuthorCredit fill:#F8F9F9,stroke:#BDC3C7,stroke-width:1px,color:#5D6D7E
+
+%% Position credit at bottom
+C_Contributions --> AuthorCredit
