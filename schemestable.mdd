@@ -1,0 +1,28 @@
+flowchart TB
+
+%% -----------------------------------------------------------
+%% Row 1 (3 items)
+%% -----------------------------------------------------------
+subgraph row1
+direction LR
+TC1["**Probability of Success (Psucc)**<br/>Chance of selecting the correct outcome based on delegates’ efforts"]
+TC2["**Cost Function c(x)**<br/>(Linear, concave, convex, or S-shaped) modeling each DRep’s effort cost"]
+TC3["**Reward Schemes**<br/>Proportional vs. Threshold(k), two ways to distribute rewards among DReps"]
+end
+style row1 fill:transparent,stroke-width:0
+
+%% -----------------------------------------------------------
+%% Row 2 (3 items)
+%% -----------------------------------------------------------
+subgraph row2
+direction LR
+TC4["**Nash Equilibrium**<br/>No DRep improves by unilaterally changing their strategy"]
+TC5["**S-Shaped Cost (cξ)**<br/>Concave–convex function from learning curves, capturing non-linear effort effects"]
+Extra["**(Optional Extra Slot)**<br/>Add more if needed or leave blank"]
+end
+style row2 fill:transparent,stroke-width:0
+
+%% Styles for boxes
+classDef techBox fill:#D6EAF8,stroke:#1B4F72,stroke-width:2px,color:#1B4F72
+
+class row1,row2,TC1,TC2,TC3,TC4,TC5,Extra techBox
