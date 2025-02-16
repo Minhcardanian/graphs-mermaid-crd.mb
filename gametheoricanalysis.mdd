@@ -1,0 +1,45 @@
+flowchart LR
+
+%% 0) Title Node
+PaperTitle["**A Game-Theoretic Analysis of Delegation Incentives (Kovalchuk et al., 2022)**"]
+
+%% 1) Paper Overview Subgraph
+subgraph PO["**Paper Overview**"]
+  direction TB
+  PO1["Delegation Scheme"]
+  PO2["Bribery Scenario Pure Strategies"]
+  PO3["Bribery Scenario Mixed Strategies"]
+  PO4["Nash Equilibrium Conditions"]
+  PO5["Sufficient Condition Prop 4"]
+  PO6["Numerical Results"]
+  PO7["Conclusion"]
+end
+
+%% 2) Technical Concepts Subgraph
+subgraph TC["**Technical Concepts**"]
+  direction TB
+  TC1["Delegate Total Reward<br/>Ri = rsi + t·rsi + ... + t^(k-1)·rsi + t^(k-1)·rli"]
+  TC2["Payoff Matrices<br/>(B1/S1, B2/S2)"]
+  TC3["Probability of Detection (q)"]
+  TC4["Moral Price (kappa)"]
+  TC5["Stake Ratio (si) and Eq25"]
+end
+
+%% 3) Cross-Links (Arrows)
+PO2 -->|Eq1| TC1
+PO2 -->|Payoffs| TC2
+PO3 -->|Detection| TC3
+PO3 -->|Moral| TC4
+PO5 -->|Eq25| TC5
+
+%% 4) Author Credit
+PO7 --> Author["Diagram by @Minhcardanian (GitHub)"]
+
+%% 5) Style Definitions
+classDef mainBox fill:#FFF2CC,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+classDef techBox fill:#D6EAF8,stroke:#1B4F72,stroke-width:2px,color:#1B4F72
+
+%% Assign Classes
+class PaperTitle noBox
+class PO,PO1,PO2,PO3,PO4,PO5,PO6,PO7 mainBox
+class TC,TC1,TC2,TC3,TC4,TC5 techBox
