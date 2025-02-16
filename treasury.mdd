@@ -1,0 +1,51 @@
+flowchart LR
+
+%% -----------------------------------------------------------
+%% 1) Treasury System (Left)
+%% -----------------------------------------------------------
+subgraph TreasurySystem ["**Treasury System (Zhang et al.)**"]
+direction TB
+    TS1["Collaborative Decision-Making<br/>• Proposals / Registration"]
+    TS2["Voting Committee & Key Setup<br/>• Threshold DKG<br/>• Seed Commitment"]
+    TS3["Ballot Casting & Delegation<br/>• Liquid Democracy<br/>• Yes/No/Abstain"]
+    TS4["Tally & Post-Voting Execution<br/>• Homomorphic Tally<br/>• ZK Proofs"]
+    TS5["Partitionary Budgeting<br/>• Category-Based Funding"]
+    TS1 --> TS2
+    TS2 --> TS3
+    TS3 --> TS4
+    TS4 --> TS5
+end
+
+%% -----------------------------------------------------------
+%% 2) Technical Concepts (Right)
+%% -----------------------------------------------------------
+subgraph TechConcepts ["**Technical Concepts**"]
+direction TB
+    TC1["**Committee Selection Threshold**<br/>hash(vk_i, sign(seed)) ≤ s_i · T"]
+    TC2["**Delegation Calculation**<br/>δ = { (E_i, Σ α_j) }"]
+    TC3["**Additively Homomorphic Encryption**<br/>Encpk(m; r) = (g^r, g^m · h^r)"]
+    TC4["**Pedersen Commitment**<br/>Com_ck(m; r) = g^m · h^r"]
+end
+
+%% -----------------------------------------------------------
+%% 3) Connect Concepts to Stages
+%% -----------------------------------------------------------
+TS2 --> TC1
+TS3 --> TC2
+TS4 --> TC3
+TS4 --> TC4
+
+%% -----------------------------------------------------------
+%% 4) Author Credit
+%% -----------------------------------------------------------
+Author["Diagram created by @Minhcardanian (GitHub)"]
+TS5 --> Author
+
+%% -----------------------------------------------------------
+%% 5) Style Definitions
+%% -----------------------------------------------------------
+classDef mainNode fill:#FFF2CC,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+classDef techNode fill:#D6EAF8,stroke:#1B4F72,stroke-width:1px,color:#1B4F72
+
+class TreasurySystem,TS1,TS2,TS3,TS4,TS5 mainNode
+class TechConcepts,TC1,TC2,TC3,TC4 techNode
