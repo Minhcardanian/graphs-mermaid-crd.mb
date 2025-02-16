@@ -1,0 +1,48 @@
+flowchart LR
+
+%% Title Node
+PaperTitle["**Reward Schemes & Committee Sizes in PoS Governance (Birmpas et al., 2024)**"]
+
+%% Paper Overview (Left)
+subgraph PaperOverview ["**Paper Overview**"]
+direction TB
+
+DelegationModel["Delegation Model<br/>DReps, cost c(x), binary outcome"]
+OptimalSolutions["Optimal Solutions<br/>Concave vs. Convex cost"]
+ProportionalSharing["Proportional Sharing<br/>Warmup, low-effort drawback"]
+ThresholdMech["Threshold(k) Mechanism<br/>Top-k delegates get paid"]
+SShaped["S-Shaped Curves<br/>Concave–convex synergy"]
+Conclusions["Conclusions"]
+end
+
+%% Technical Concepts (Right)
+subgraph TechConcepts ["**Technical Concepts**"]
+direction TB
+
+PSucc["Probability of Success (Psucc)"]
+CostFunc["Cost Function c(x)"]
+RewardSchemes["Reward Schemes<br/>Proportional vs Threshold(k)"]
+NashEq["Nash Equilibrium"]
+SShapedCost["S-Shaped Cost (cξ)"]
+end
+
+%% Single arrow from subgraph to subgraph
+PaperOverview --> TechConcepts
+
+%% Minimal cross-links
+DelegationModel --> PSucc
+OptimalSolutions --> CostFunc
+ProportionalSharing --> RewardSchemes
+ThresholdMech --> RewardSchemes
+SShaped --> SShapedCost
+Conclusions --> Author
+
+%% Author credit node
+Author["Diagram created by @Minhcardanian (GitHub)"]
+
+%% Coloring
+classDef overviewBox fill:#FFF2CC,stroke:#F1C40F,stroke-width:2px,color:#7D6608
+classDef techBox fill:#D6EAF8,stroke:#1B4F72,stroke-width:2px,color:#1B4F72
+
+class PaperOverview,DelegationModel,OptimalSolutions,ProportionalSharing,ThresholdMech,SShaped,Conclusions overviewBox
+class TechConcepts,PSucc,CostFunc,RewardSchemes,NashEq,SShapedCost techBox
