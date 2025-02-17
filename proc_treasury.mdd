@@ -1,0 +1,46 @@
+graph LR
+    subgraph Treasury Period
+        A[Pre-voting Epoch] --> B{Project Proposals Submitted, Voters/Experts Register};
+        B --> C[Voting Epoch];
+        C --> D{Voting Committee Selected, Voting Key Generated};
+        D --> E[Voters/Experts Cast Ballots];
+        E --> F[Post-voting Epoch];
+        F --> G{Voting Committee Computes and Signs Decision};
+        G --> H[Winning Proposals Funded];
+    end
+
+    subgraph Stake Delegation
+        I[Stakeholder] -- Owns Coins --> J{Coin Payload};
+        J -- Contains Verification Mechanism --> K[Stake Delegation without Ownership Transfer];
+        K -- Delegates Stake --> L[Expert];
+        L -- Influence --> E;
+        I -- Direct Vote --> E;
+    end
+
+    subgraph Funding Sources
+        M[Minting New Coins] --> N[Treasury Funds];
+        O[Taxation from Miners' Reward] --> N;
+        P[Donations/Charity] --> N;
+    end
+
+    subgraph Voting Protocol
+        Q[Voters] --> R{UC Secure End-to-End Verifiable Voting Protocol};
+        L --> R;
+        R --> S{Voting Committee};
+        S -- t out of k honest --> T[Guaranteed Termination];
+        S -- All Corrupted --> U[Integrity Ensured, Termination Not Guaranteed];
+    end
+
+    subgraph Zero-Knowledge Proof
+      V[Unit Vector Encryption] --> W[Honest Verifier Zero-Knowledge Proof];
+      W --> X[Logarithmic Size Communication];
+    end
+
+    style N fill:#f9f,stroke:#333,stroke-width:2px
+    style K fill:#ccf,stroke:#333,stroke-width:2px
+
+    N --> H
+    X --> R
+
+    linkStyle 0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16,17,18,19,20 stroke:#333, stroke-width:1px;
+
