@@ -1,0 +1,40 @@
+graph LR
+    subgraph Governance_System
+        A[Stakeholders] -->|Delegate| B[DReps]
+        B -->|Exert Effort xi| C[Increase Voting Accuracy]
+        C --> D[Increase Delegation wi]
+    end
+
+    subgraph Reward_Schemes
+        D -->|Proportional| E[Reward proportional to weight]
+        D -->|Threshold| F[Reward above threshold]
+        E --> B
+        F --> B
+    end
+
+    subgraph Effort_and_Cost
+        B -->|Effort xi| G[Cost function of effort]
+        G -->|Types: Linear, Convex, Concave, S-Shaped| H[Total Cost]
+    end
+
+    subgraph Election_Outcome
+        B -->|Vote weighted by delegation| I[Election Outcome]
+        I -->|Success| J[Good for Protocol]
+        I -->|Failure| K[Bad for Protocol]
+    end
+
+    subgraph Objective
+        L[Maximize Probability of Correct Outcome]
+        L --> I
+    end
+
+    subgraph Constraints
+        M[Budget for Rewards]
+    end
+
+    style A fill:#ccf,stroke:#333,stroke-width:2px
+    style B fill:#ccf,stroke:#333,stroke-width:2px
+    style J fill:#90EE90,stroke:#333,stroke-width:2px
+    style K fill:#F08080,stroke:#333,stroke-width:2px
+    style L fill:#FFFFE0,stroke:#333,stroke-width:2px
+    linkStyle default stroke:#333, stroke-width:1px;
