@@ -1,0 +1,49 @@
+graph TD
+    subgraph Participants
+        A["Proposer (P)"] --> B1["No Bribe"]
+        A --> B2["Offer Bribe"]
+        C["Delegate (Di)"] --> S1["Refuse Bribe"]
+        C --> S2["Accept Bribe"]
+    end
+
+    subgraph Delegation_Scheme
+        E["Stakeholders (V)"] --> C
+        E --> F["Vote Directly"]
+    end
+
+    subgraph Payoffs
+        direction TB
+        subgraph D_Payoffs[Delegate Payoffs]
+            B1 --> G["ui(B1,S1)=Ri-kei"]
+            B1 --> H["ui(B1,S2)=Ri-kei-Ki"]
+            B2 --> I["ui(B2,S1)=Ri-kei+Ki"]
+            B2 --> J["ui(B2,S2)=Ci+(1-q)Ri-Ki"]
+        end
+        subgraph P_Payoffs[Proposer Payoffs]
+            B1 --> K["uP(B1)=v"]
+            B2 --> L["uP(B2,S1)=-Ki"]
+            B2 --> M["uP(B2,S2)=F-Ki-Ci"]
+        end
+    end
+
+    subgraph Parameters
+        direction TB
+        N["Ri: Reward"] 
+        O["kei: Effort"] 
+        P["Ki: Risk"] 
+        Q["Ci: Bribe"] 
+        R["q: Detection"] 
+        S["F: Profit"] 
+        T["v: Funding"]
+    end
+
+    subgraph Nash_Equilibrium
+        direction TB
+        X["(B1,S1): Always"]
+        Y["(B2,S2): IFF"]
+        AA["F-Ki-Ci > v"]
+        BB["Ci+(1-q)Ri-Ki>Ri-kei+Ki"]
+    end
+
+    style A fill:#ccf,stroke:#333,stroke-width:2px
+    style C fill:#ccf,stroke:#333,stroke-width:2px
