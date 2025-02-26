@@ -1,0 +1,39 @@
+flowchart TB
+    %% --- CLASS DEFINITIONS ---
+    classDef highlight fill:#FFE6E6,stroke:#FF0000,stroke-width:2px,color:#000
+    classDef secure fill:#E6FFE6,stroke:#008000,stroke-width:2px,color:#000
+    classDef fips fill:#E6F7FF,stroke:#008080,stroke-width:2px,color:#000
+
+    %% --- MAIN FLOW ---
+    A["Shor's Algorithm"]:::highlight --> B["ECC & RSA Insecure"]:::highlight
+    B --> C["Quantum Computers / QC"]:::highlight
+    C --> D["NIST PQSS / Quantum Secure"]:::secure
+
+    subgraph Threat_Model ["Threat Model"]
+        E["Attacker Capabilities"]
+        F["Compute Resources"]
+        G["Physical Access (Online vs Offline)"]
+        H["Side-Channel Attacks"]
+        E --> F
+        F --> G
+        G --> H
+    end
+
+    D --> Threat_Model
+
+    D --> X["FIPS & PQ Crypto"]:::fips
+    X --> X1["FIPS 203 (Encryption)"]:::fips
+    X --> X2["FIPS 204 (ML-DSA)"]:::fips
+    X --> X3["FIPS 205 (SLH-DSA)"]:::fips
+
+    X1 --> Y["New Hardware & Crypto Systems"]
+    X2 --> Y
+    X3 --> Y
+
+    Y --> Z["Meta-Blockchain (e.g. Cardano)"]
+    Z --> W["Mithril / PASS Protocols"]
+    W --> V["Security is Temporal (t1→t2)"]
+    V --> U["New Compute & Technique => Defenses"]
+
+    %% --- SUBGRAPH STYLE ---
+    style Threat_Model fill:#FFF2CC,stroke:#FF9900,stroke-width:2px,color:#000
