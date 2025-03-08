@@ -1,0 +1,20 @@
+flowchart TD
+    User[Resident/DMB] -->|Login via Wallet| Frontend[Web Dashboard]
+    Frontend -->|API calls| Backend[Node.js Backend]
+    Backend -->|Interact| Blockchain[Cardano Blockchain]
+    Blockchain -->|Smart Contract| SC[Aiken Smart Contracts]
+    SC -->|Update Status| Blockchain
+    Blockchain -->|Transaction Confirmations| Backend
+    Backend -->|Data Fetching| Database[PostgreSQL/Firebase]
+    Database -->|Provide Data| Backend
+    Backend -->|Serve Content| Frontend
+    Frontend -->|View Transactions| Explorer[Blockchain Explorer]
+
+    subgraph Governance
+    DMB[Dormitory Management Board] -->|Set Rules & Penalties| SC
+    end
+
+    style Blockchain fill:#f9f,stroke:#333,stroke-width:1px
+    style SC fill:#bbf,stroke:#333,stroke-width:1px
+    style Frontend fill:#ffb,stroke:#333,stroke-width:1px
+    style Backend fill:#afa,stroke:#333,stroke-width:1px
