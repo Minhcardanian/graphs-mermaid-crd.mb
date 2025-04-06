@@ -1,0 +1,27 @@
+gantt_script = """\
+gantt
+    title DRep Incentives CIP - Project Timeline (12 months)
+    dateFormat  YYYY-MM-DD
+    axisFormat  %Y-%m
+
+    section Phase 1: Setup & Discovery
+    Milestone_1  :done,    2025-01-01, 2025-02-28
+
+    section Phase 2: Model Drafting
+    Milestone_2  :done,    2025-03-01, 2025-04-30
+
+    section Phase 3: Data Collection
+    Milestone_3  :active,  2025-05-01, 2025-06-30
+
+    section Phase 4: Modeling
+    Milestone_4  :         2025-07-01, 2025-08-31
+
+    section Phase 5: Dashboard
+    Milestone_5  :         2025-09-01, 2025-10-31
+
+    section Phase 6: Final Validation
+    Milestone_6  :         2025-11-01, 2025-11-30
+
+    section Phase 7: Reporting
+    Milestone_7  :         2025-12-01, 2025-12-31
+"""
